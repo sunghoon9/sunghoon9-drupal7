@@ -44,45 +44,20 @@
  * @ingroup themeable
  */
 ?>
-<div id="<?php
+<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+	<!-- Begin : Title -->
+  <?php print render($title_prefix); ?>
 
-print $block_html_id;
-?>" class="<?php
+  <?php if($block->subject): ?>
+  <h2<?php print $title_attributes; ?>><?php print $block->subject; ?></h2>
+  <?php endif; ?>
 
-print $classes;
-?>"<?php
+  <?php print render($title_suffix); ?>
+	<!-- End : Title -->
 
-print $attributes;
-?>>
-
-  <?php
-
-print render($title_prefix);
-if ($block->subject) {
-  ?>
-  <h2<?php
-
-  print $title_attributes;
-  ?>><?php
-
-  print $block->subject;
-  ?></h2>
-<?php
-
-}
-?>
-  <?php
-
-print render($title_suffix);
-?>
-
-  <div class="content"<?php
-
-print $content_attributes;
-?>>
-    <?php
-
-print $content;
-?>
+	<!-- Begin : Content -->
+  <div class="content" <?php print $content_attributes; ?>>
+    <?php // print $content; ?>
   </div>
+	<!-- End : Content -->
 </div>
